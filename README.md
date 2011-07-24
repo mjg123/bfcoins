@@ -1,3 +1,3 @@
 # BrisFunctional LISP night
 
-Synamic programming exercise.
+Dynamic programming exercise.
