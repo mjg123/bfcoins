@@ -21,7 +21,7 @@ advanced:
     targets: 25 9
     result:  (10 10 5) (5 2 2) (1 10 50 100) <-- last is left overs
 
-3/ This is one variation of the knapsack problem.  Another variation is known as the subset-sum problem:
+3/ That is one variation of the knapsack problem.  Another variation is known as the subset-sum problem:
     coins:   { −7, −3, −2, 5, 8}
     target:  0 <-- always is, in subset-sum.  Added constraint that the answer cannot be the empty set.
     answer: {-3, -2, 5}
