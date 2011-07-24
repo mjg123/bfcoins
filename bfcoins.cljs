@@ -13,13 +13,15 @@
 
 ;; DOM stuff
 
-(defn get-coins 
+(defn get-coins []
   "Parse the coins string out of the browser, return sorted largest first"
-  []
-  (let [coin-str (.value (dom/getElement "coins"))
-        coins-as-str (.split coin-str " ")
-        coins (map #(* 1 %) coins-as-str)]
-    (reverse (sort coins))))
+  (let [coins-as-strs  (-> (dom/getElement "coins")
+                           (.value)
+                           (.split " "))
+        non-zero-coins (->> coins-as-strs
+                            (map #(* 1 %))
+                            (filter #(not= 0 %)))]
+    (reverse (sort non-zero-coins))))
 
 (defn get-target []
   (.value (dom/getElement "target")))
@@ -46,6 +48,6 @@
 (defn calculate [coins target]
   (let [coin (max-coin coins target)]
     (cond
-      (= coin 0)      (js-alert "No solution")
+      (= coin nil)    (js-alert "No solution")
       (= coin target) (list coin)
       (< coin target) (conj (calculate coins (- target coin)) coin))))
