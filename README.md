@@ -1,3 +1,1 @@
-# BrisFunctional LISP night
-
-Dynamic programming exercise.
+Everything is on the gh-pages branch
