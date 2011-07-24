@@ -5,7 +5,8 @@
 ;; DEBUG stuff
 
 (defn js-alert [msg]
-  ((js* "alert") msg))
+  ((js* "alert") msg)
+  nil)
 
 (defn clj-alert [msg]
   (js-alert (pr-str msg)))
@@ -45,5 +46,6 @@
 (defn calculate [coins target]
   (let [coin (max-coin coins target)]
     (cond
+      (= coin 0)      (js-alert "No solution")
       (= coin target) (list coin)
-      :else (conj (calculate coins (- target coin)) coin))))
+      (< coin target) (conj (calculate coins (- target coin)) coin))))
