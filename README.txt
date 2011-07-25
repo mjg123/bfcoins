@@ -2,10 +2,6 @@
 
 Dynamic programming exercise.
 
-clojure-specific notes:
-
-1/ This implementation can stack-overflow.  Can use loop-recur.
-
 
 advanced:
 
@@ -20,3 +16,14 @@ advanced:
     coins:   { −7, −3, −2, 5, 8}
     target:  0 <-- always is, in subset-sum.  Added constraint that the answer cannot be the empty set.
     answer: {-3, -2, 5}
+
+
+---
+
+asked about this on the clojure irc channel:
+
+https://gist.github.com/1074857/0f32b3d64cd7641ef975f8fa6e08f26518a6cae4
+https://gist.github.com/1074808
+https://gist.github.com/1074818
+
+(last is apparently fastest, and is definitely easiest to understand)

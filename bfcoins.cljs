@@ -21,7 +21,7 @@
         non-zero-coins (->> coins-as-strs
                             (map #(* 1 %))
                             (filter #(not= 0 %)))]
-    (reverse (sort non-zero-coins))))
+    non-zero-coins))
 
 (defn get-target []
   (* 1 (.value (dom/getElement "target"))))
@@ -32,7 +32,7 @@
 
 (defn dom-calculate []
   (write-answer
-    (calculate (get-coins) (get-target))))
+    (get-change (get-coins) (get-target))))
 
 (events/listen (dom/getElement "do-calculation")
                "click"
@@ -43,11 +43,30 @@
 (defn max-coin
   "Return the largest coin which is <= target"
   [coins target]
-  (first (filter #(>= target %) coins)))
+  (apply max (filter #(>= target %) coins)))
 
-(defn calculate [coins target]
-  (let [coin (max-coin coins target)]
-    (cond
-      (= coin nil)    (js-alert "No solution")
-      (= coin target) (list coin)
-      (< coin target) (conj (calculate coins (- target coin)) coin))))
+(defn get-change
+  "Make the value of target out of values in the list of coins"
+  ([coins target]
+    (reverse (get-change coins target (list))))
+  ([coins target so-far]
+    (let [coin (max-coin coins target)]
+      (cond
+        (not coin)      (js-alert "No solution")
+        (= coin target) (cons coin so-far)
+        (< coin target) (recur coins (- target coin) (cons coin so-far))))))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
