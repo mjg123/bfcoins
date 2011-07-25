@@ -2,14 +2,9 @@
 
 Dynamic programming exercise.
 
-notes:
+clojure-specific notes:
 
-1/ this could stack overflow, use loop-recur
-
-2/ we should memoize
-
-3/ don't be GREEDY
-
+1/ This implementation can stack-overflow.  Can use loop-recur.
 
 
 advanced:
