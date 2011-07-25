@@ -27,3 +27,6 @@ https://gist.github.com/1074808
 https://gist.github.com/1074818
 
 (last is apparently fastest, and is definitely easiest to understand)
+
+
+Lisp 1957
