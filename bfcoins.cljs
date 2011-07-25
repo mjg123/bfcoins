@@ -24,7 +24,7 @@
     (reverse (sort non-zero-coins))))
 
 (defn get-target []
-  (.value (dom/getElement "target")))
+  (* 1 (.value (dom/getElement "target"))))
 
 (defn write-answer [answer]
   (set! (.innerHTML (dom/getElement "results")) 
